@@ -1,0 +1,17 @@
+{
+  library: #include <ctime>,
+  function: clock(),
+  description: {
+    devuelve el numero de tics de reloj por segundos, este es un valor 
+    constante para el computador.
+  } 
+
+}
+ library: #include <chrono>
+ function: chrono , duration,
+ 
+
+{
+
+
+}

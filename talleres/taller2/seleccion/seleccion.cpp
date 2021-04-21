@@ -5,11 +5,12 @@
 using namespace std;
 //using std::vector;
 int *seleccion(int v[], int n){ 
-  for (int i = 0; i < n - 1; ++i) {
-         int min = i;
-         for (int c = i + 1; c < n; ++c)
+  int i, c, aux, min;
+  for (i = 0; i < n - 1; ++i) {
+         min = i;
+         for (c = i + 1; c < n; ++c)
             if (v[min] > v[c]) min = c;                          
-          int  aux = v[i];
+          aux = v[i];
           v[i] = v[min];
           v[min] = aux;
                                  
@@ -40,8 +41,8 @@ int main(){
     
     auto end= std::chrono::system_clock::now();
     std::chrono::duration<float,std::milli> duration = end - start;    
-    //cout<<"para "<<i<<"elementos el tiempo transcurrido: "<<duration.count()<<" ms"<<endl;
-    cout<<duration.count()<<endl;
+    cout<<"para "<<i<<" elementos el tiempo transcurrido: "<<duration.count()<<" ms"<<endl;
+    //cout<<duration.count()<<endl;
   }
 
   return 0;

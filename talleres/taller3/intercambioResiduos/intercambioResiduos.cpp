@@ -52,8 +52,8 @@ int main(){
       auto end = std::chrono::system_clock::now();
       std::chrono::duration<float,std::milli> duration = end - start;    
 
-      //cout<<"para "<<i<<" elementos el tiempo transcurrido: "<<duration.count()<<" ms"<<endl;
-      cout<<duration.count()<<endl;
+      cout<<"para "<<i<<" elementos el tiempo transcurrido: "<<duration.count()<<" ms"<<endl;
+      //cout<<duration.count()<<endl;
       //cout<<endl;
       //cout<<" ordenado"<<endl;
       //for(int k = 0; k<i; k++)

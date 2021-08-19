@@ -1,0 +1,14 @@
+//plantilla de una estructura tipo t y apuntador al siguiente
+//crear clase lista dentro de la misma libreria {
+  se necesita el apuntador a la cabeza de tipo nodo (struct)
+  en el constructor la cabeza es null
+  crear metodo insertar con parametros:
+      - con data y posicion (si es mayor que el tamaño va al final) //hay
+        corrimientos.
+      - con data (va para el primero)
+  crear metodo borrar:
+      - parametro posición
+  buscar:
+      - retornar la info de la posicion
+  modificar tambien.
+//}

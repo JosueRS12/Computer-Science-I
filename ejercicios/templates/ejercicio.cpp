@@ -1,8 +1,6 @@
 //definir una estructura, debe tener 2 datos genericos.
 //funcion que suma dos estructuras
 //en el main se declaran las dos estructuras y se llama la funcion
-
-
 #include <iostream>
 #include <cstdlib>
 using namespace std;

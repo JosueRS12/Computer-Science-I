@@ -80,16 +80,14 @@ int main(){
       MergeSort(a,0,i-1);
       auto end = std::chrono::system_clock::now();
       std::chrono::duration<float,std::milli> duration = end - start;    
-      cout<<duration.count()<<endl;
+      //cout<<duration.count()<<endl;
       
       //for(j = 0; j < i; j++)
         //cout<<a[j]<<" ";      
 
       //cout<<endl;
 
-      //cout<<"para "<<i<<" elementos el tiempo transcurrido: "<<duration.count()<<" ms"<<endl;
-      //cout<<duration.count()<<endl;
-      //cout<<endl;
+      cout<<"para "<<i<<" elementos el tiempo transcurrido: "<<duration.count()<<" ms"<<endl;
     }
 
   return 0;

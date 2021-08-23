@@ -13,5 +13,5 @@ template<class T, class S>
   void enlazarNodo(nodo<T,S> a){
     int i = 0; 
     nodo<T,S>  
-  }
+};
 

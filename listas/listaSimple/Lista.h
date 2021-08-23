@@ -17,8 +17,6 @@
 //notation
 //ptr->feet is same as (*ptr).feet
 //ptr->inch is same as (*ptr).inc
-
-
 #ifndef LISTA_H
 #define LISTA_H
 
@@ -30,7 +28,7 @@ using namespace std;
 template <class T>
 struct Nodo{
   T info;
-  const Nodo<T>  *sig;
+  Nodo<T>  *sig;
 };
   //tam
   //info
@@ -48,9 +46,9 @@ class Lista{
   //metodos
   bool listaVacia(); //
   int tamLista(); //
-  T obtenerDato(int pos); // comprobar
-  bool eliminar(int pos); // comprobar
-  void insertarInicio(T infoNueva);
+  T obtenerDato(int pos); // 
+  bool eliminar(int pos); // falta hacer delete
+  void insertarInicio(T infoNueva); //
   void insertarPos(T infoNueva, int pos);
   bool modificar(T, int pos);
 };
@@ -72,48 +70,42 @@ int Lista<T> :: tamLista(){
 
 template <class T>
 T Lista<T> :: obtenerDato(int pos){
-  //Nodo<T> *p = head;
-  //Nodo<T> *aux;
-  ////for(int i = 0; i<pos-1; i++){
-    //aux = p -> sig; 
-  ////}
-  //cout<<aux -> info<<endl;
-  return NULL; //
+  Nodo<T> *nodo = head;
+  for(int i = 0; i<pos; i++){
+    nodo = nodo -> sig; 
+  }
+  return nodo -> info; //
 } 
 
 template <class T>
 bool Lista<T> :: eliminar(int pos){
-  int i=pos;
-  while(i<tam){
-    if(i == pos){
-      head[pos] = NULL;
-      *head[pos] = NULL;
-    }
-    else{
-      --head[i];
-    }
-    i++;
+  Nodo<T> *nodo = head;
+  int i = 0;  
+  if(pos==0){
+    head = nodo -> sig;
+    delete nodo;
+    tam--;
+    return true;
   }
-  return true;
+  else if(pos<tam){
+    while(i<(pos-1)){
+      nodo = nodo -> sig; //anterior
+      i++;
+    }
+    nodo -> sig = nodo -> sig -> sig;
+    delete nodo -> sig;
+    tam--;
+    return true;
+  }
+  return false;
 }
 
 template <class T>
 void Lista<T> :: insertarInicio(T infoNueva){
-  const Nodo<T> *aux = head; //funciona
-  Nodo <T> nodo;
-  nodo.info = infoNueva;
-  nodo.sig = aux;
-  head = &nodo;
-  cout<<"head "<< head -> info ;
-  cout<<" direccion head "<< head -> sig <<endl;
-  if(aux!=NULL){
-    cout<<"aux "<<aux -> info;
-    cout<<"direccion aux "<< aux -> sig <<endl;
-  }
-  
-  cout<<(*head).info<<endl;
-   
+  Nodo<T> *nodo = new Nodo<T>; //funciona
+  nodo -> info = infoNueva;
+  nodo -> sig = head;
+  head = nodo;
   tam++;
 }
-
 #endif

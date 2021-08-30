@@ -1,0 +1,33 @@
+falto main y eliminar
+
+
+
+lista general => alumno{
+  edad,
+  nombre,
+  carrera,
+  actividad
+    apuntadores que generan la multilista{
+      sig eda,
+      sig nombre,
+      sig carrera,
+      sig actividad
+    }
+} 
+
+ingresar elemento a la multilista, eliminar elemento
+
+lista por edades (mayor a menor)
+lista por nombre (menor a mayor)
+lista por carreras (se insertan al final){
+    sistemas
+    electronica
+    electrica
+    industrial
+  }
+lista por actividades (se insertan al comienzo, como una pila){
+  - danza.
+  - basq.
+  - natacion.
+  - besbol.
+}

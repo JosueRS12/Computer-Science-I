@@ -1,0 +1,17 @@
+para eliminar{
+  - si es hoja se desconecta y ya.
+  - 1 hijo: el hijo reemplaza el padre
+  - 2 hijo: el de la derecha más a la izquierda reemplaza el padre.
+  Caracteristicas a tener en cuenta{
+    - al borrar se puede presentar problemas con la característica f.
+    - se deben revisar 4 casos con sus simetricos{
+        caso 1{
+
+        },
+             caso 2{
+
+             } 
+      }
+    }
+  }
+}

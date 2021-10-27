@@ -1,0 +1,16 @@
+tipos de inserción{
+  inorden{
+    izq - raíz - der
+  },
+  preorden{
+    raiz -izq - der
+  },
+  posorden{
+    izq - der - raiz
+  },
+}
+
+
+comportamiento{
+  lg(n)
+}

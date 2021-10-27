@@ -1,0 +1,25 @@
+para eliminar{
+  - se elimina el nodo dado y se mira el de la derecha más a la izquierda para
+reemplazarlo como raíz.
+}
+
+Factor de Balance para insertar{
+- Para cada nodo: niveles derechos - izquierdos.
+- si está entre [-1 y 1] está equilibrado
+- si hay desbalance{
+    - se rota:
+      poner el pivote en el nodo desequilibrado y correr al lado que convenga,
+      como si fuese una cuerda.
+    - tener en cuenta los hijos:
+      - rotación simple:
+          (-) der: se rompe el izq => el nieto pasa a ser hijo izq del padre.
+          (+) izq: se rompe el der => el nieto pasa a ser hijo der del padre.
+      - rotación doble:
+        1. se rota sobre el hijo.
+        2. sobre el desbalanceado.
+        (...)
+    - se va actualizandno el factor de equilibrio.
+  }
+- los únicos que cambian de factor es el que rota y sus hijos
+}
+

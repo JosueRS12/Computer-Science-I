@@ -1,0 +1,10 @@
+todo idéntico
+
+inserción{
+  - en nodos hojas{
+    se repite clave
+  }
+  - "nodos internos"{
+    no se repiten las claves, porque son índices
+  }
+}

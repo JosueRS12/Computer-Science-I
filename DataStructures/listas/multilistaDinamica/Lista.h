@@ -1,29 +1,9 @@
-//plantilla de una estructura tipo t y apuntador al siguiente
-//crear clase lista dentro de la misma libreria {
-  //se necesita el apuntador a la cabeza de tipo nodo (struct)
-  //en el constructor la cabeza es null
-  //crear metodo insertar con parametros:
-      //- con data y posicion (si es mayor que el tamaño va al final) //hay
-        //corrimientos.
-      //- con data (va para el primero)
-  //crear metodo borrar:
-      //- parametro posición
-  //buscar:
-      //- retornar la info de la posicion
-  //modificar tambien.
-//}
-
-
-//notation
-//ptr->feet is same as (*ptr).feet
-//ptr->inch is same as (*ptr).inc
 #ifndef LISTA_H
 #define LISTA_H
 
 #include <cstdlib>
 #include <iostream>
 using namespace std;
-
 
 template <class T>
 struct Nodo{
@@ -47,12 +27,21 @@ class Lista{
   bool listaVacia(); //
   int tamLista(); //
   T obtenerDato(int pos); // 
-  bool eliminar(int pos); // falta hacer delete
+  //bool eliminar(int pos); // falta hacer delete
+  bool eliminar(T dato); // falta hacer delete
   void insertarInicio(T infoNueva); //
   T buscarLista(string ruta);
+  Nodo<T> *buscarListaApuntador(string ruta);
   void insertarPos(T infoNueva, int pos);
   bool modificar(T, int pos);
+  T getTipoDato();
 };
+
+
+template <class T>
+T Lista<T> :: getTipoDato(){
+  return head -> info.tipoEstructura;
+}
 
 template <class T>
 bool Lista<T> :: listaVacia(){
@@ -72,6 +61,11 @@ int Lista<T> :: tamLista(){
 template <class T>
 T Lista<T> :: obtenerDato(int pos){
   Nodo<T> *nodo = head;
+  int i = 0;
+  //while(nodo!=NULL && i<pos){
+    //nodo = nodo -> sig; 
+    //i++;
+  //}
   for(int i = 0; i<pos; i++){
     nodo = nodo -> sig; 
   }
@@ -79,27 +73,44 @@ T Lista<T> :: obtenerDato(int pos){
 } 
 
 template <class T>
-bool Lista<T> :: eliminar(int pos){
-  Nodo<T> *nodo = head;
+bool Lista<T> :: eliminar(T dato){
+  Nodo<T> *nodo = head, *aux = new Nodo<T>;
   int i = 0;  
-  if(pos==0){
-    head = nodo -> sig;
-    delete nodo;
-    tam--;
-    return true;
-  }
-  else if(pos<tam){
-    while(i<(pos-1)){
-      nodo = nodo -> sig; //anterior
-      i++;
+  while(nodo!=NULL){
+    if(nodo -> info.nombre == dato.nombre){
+      aux -> sig = nodo -> sig;
+      delete nodo;
+      tam--;
+      return true;
     }
-    nodo -> sig = nodo -> sig -> sig;
-    delete nodo -> sig;
-    tam--;
-    return true;
+    aux = nodo; //anterior
+    nodo = nodo -> sig; //el que deseamos borrar
   }
   return false;
 }
+
+//template <class T>
+//bool Lista<T> :: eliminar(int pos){
+  //Nodo<T> *nodo = head;
+  //int i = 0;  
+  //if(pos==0){
+    //head = nodo -> sig;
+    //delete nodo;
+    //tam--;
+    //return true;
+  //}
+  //else if(pos<tam){
+    //while(i<(pos-1)){
+      //nodo = nodo -> sig; //anterior
+      //i++;
+    //}
+    //nodo -> sig = nodo -> sig -> sig;
+    //delete nodo -> sig;
+    //tam--;
+    //return true;
+  //}
+  //return false;
+//}
 
 template <class T>
 void Lista<T> :: insertarInicio(T infoNueva){
@@ -113,12 +124,8 @@ void Lista<T> :: insertarInicio(T infoNueva){
 template <class T>
 T Lista<T> :: buscarLista(string ruta){
 //facultad carrera asig prof pos
-  int pos, i = 0;
-  bool res = false; 
   Nodo<T> *aux = head;
-
-
-  while(aux != NULL && res == false){
+  while(aux != NULL){
     if(aux -> info.nombre == ruta){
       return aux -> info; //asab => facultad {nombre, direccion..., lista}
     }
@@ -126,5 +133,15 @@ T Lista<T> :: buscarLista(string ruta){
   }
 }
 
-
+template <class T>
+Nodo<T> *Lista<T> :: buscarListaApuntador(string ruta){
+//facultad carrera asig prof pos
+  Nodo<T> *aux = head;
+  while(aux != NULL){
+    if(aux -> info.nombre == ruta){
+      return aux; //asab => facultad {nombre, direccion..., lista}
+    }
+      aux = aux -> sig;
+  }
+}
 #endif

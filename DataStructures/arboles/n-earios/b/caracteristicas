@@ -41,10 +41,12 @@ borrar{
     //para hojas
     - 1: Borrado de clave de nodo hoja con más del mínimo de claves: No pasa nada.
       - 2: borrar una clave de un nodo hoja con justo el mínimo{
-        - si el hermano izq o der tienen más del mínimo{
+        - si el hermano izq o der (siempre se mira primero der)tienen más del mínimo{
           - se hace una rotación respecto a la clave más "próxima" del hermano
             con más del mínimo, subiendo esa clave nueva y la clave que estaba
             ("padre") en esa posición se baja al espacio que quedó "vació".
+          - el hijo que corresponda de la clave que es el reemplazo del padre
+            de x, pasa a ser hijo de x.
         }
         - 2.2: clave a borrar con justo el min, igual los hermanos{
           - se busca el padre de la derecha de la clave a quitar (x) y se pone
